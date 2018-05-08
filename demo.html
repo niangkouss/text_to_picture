@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+<div class="settings">
+	<h2>设置栏</h2>
+	<div class="column">
+		字体大小:
+		<input size="4" id='fontSize' value='15'/>px
+	</div>
+	<div class="column">
+		字体加粗:
+		<select id="fontWeight">
+			<option value="normal">细</option>
+			<option value="bold">粗</option>
+		</select>
+	</div>
+	<div class="column">
+		每行显示:
+		<input size="4" id='len' value="40"/>个字
+	</div>
+	<div class="column">
+		文字颜色:
+		<canvas id="text" width="70" height="20"></canvas>
+		<div>
+			目前的颜色:<span id="showcolor"></span>
+		</div>
+	</div>
+	<div class="column">
+		颜色设置:
+		<p>Red： <input type="range" id="red" min="0" max="255" value="0"
+					   onchange="changeColor();"/></p>
+		<p>Green：<input type="range" id="green" min="0" max="255"
+						value="0" onchange="changeColor();"/></p>
+		<p>Blue： <input type="range" id="blue" min="0" max="255" value="0"
+						onchange="changeColor();"/></p>
+	</div>
+</div>
+
+<div>
+	<textarea id="txt" style="width: 450px; height: 300px;">快来分享今天的新鲜事吧.. 如果微博字数超过140,点击右方的“生成图片”，鼠标右击右边“文字”，“图片另存为...”，保存图片后，就可以直接以图片的形式发布长微博了!
+	</textarea>
+	<button onclick=textToImg();>生成图片</button>
+</div>
+
+<canvas id="canvas" style="display:block"></canvas> <!--中间canvas-->
+
+<div style="margin-left: 650px">
+	<img id="img" style="border: 1px solid"/>
+</div>
+
+<script src="text_to_picture.js"></script>
+<script>
+    changeColor();
+</script>
+</body>
+</html>
